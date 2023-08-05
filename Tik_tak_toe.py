@@ -9,8 +9,24 @@ currentPlayer = 'X'
 winner = None
 gameRunning = True
 
+
+#starting information and title
+
 print("WELCOME TO TIC TAK TOE!")
-ask = int(input("do u want to play with computer (yes >> 1 no >> 2):"))
+
+def boardStr():
+    print("The structure of board is as follows >>")
+    print("1" + " | " + "2" + " | " + "3")
+    print("--|---|---")
+    print("4" + " | " + "5" + " | " + "6")
+    print("--|---|---")
+    print("7" + " | " + "8" + " | " + "9") 
+    print("NOTE : if your move is invalid computer will finish its move.... Be careful which cell you choose ")
+
+boardStr()    
+
+#play with computer?
+ask = int(input("Play with computer?? (yes >> 1 no >> 2):"))
 
 
 #printing board
@@ -26,7 +42,7 @@ def printBoard(board):
 #Taking input from player
 
 def playerInput(board):
-    inpt = int(input("enter a number between 1-9: "))
+    inpt = int(input("Enter a number between 1-9: "))
     
     if inpt >= 1 and inpt <= 9 and board[inpt-1] == "-":
         board[inpt-1] = currentPlayer
@@ -80,7 +96,7 @@ def checkTie(board):
 def checkWin():
     global gameRunning
     if checkCol(board) or checkRow(board) or checkdia(board):
-        print(f"the winner is {winner}")
+        print(f"CONGRATULATION!! the winner is {winner}")
         printBoard(board)
         gameRunning = False
         
